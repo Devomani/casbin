@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import 'antd/dist/antd.min.css'
+import {BrowserRouter, Routes, Route } from 'react-router-dom'
+import {Home} from './pages/home/index'
+import { Login } from './pages/authentication/login'
+import { SignUp } from './pages/authentication/signup'
+import { Earn } from './pages/earn'
+import { More } from './pages/more'
+import { Trash } from './pages/trash'
+import { Notification } from './pages/notification'
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element= {<Login />}></Route>
+        <Route path='/dashboard' element= {<Home />}></Route>
+        <Route path='/register' element= {<SignUp />}></Route>
+        <Route path='/earn' element= {<Earn />}></Route>
+        <Route path='/more' element= {<More />}></Route>
+        <Route path='/trash' element= {<Trash />}></Route> 
+        <Route path='/notification' element= {<Notification />}></Route>
+      </Routes>
+    </BrowserRouter>
+  )
 }
-
-export default App;
