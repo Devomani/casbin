@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  } 
+
+/* .container{
+  height:100px;
+  width: 375px;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  background-color: white;
+  position: relative;
+  } */
+
+  h3 {
+    color: white;
+    text-align: center;
+    margin-top: -40px;
+    padding-bottom: 70px;
+  } 
+
+  /* .app-container{
+    background-color: #39561A!important;
+    height: 100px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+  } */
+
+  /* .app-body{
+    width: inherit;
+    padding: 0px 30px;
+    border: 1px solid grey;
+    background-color: white;
+}
+*/
+
+  form{
+    width: inherit;
+    padding: 0px 30px;
+    /* border: 1px solid grey; */
+  }
+  
+
+ .signSection{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+} 
+
+.google-login{
+  height: 63.95px;
+  width: 200px;
+  background-color: rgba(153, 204, 99, 0.4);;
+  border-radius: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.facebook-login{
+  height: 63.95px;
+  width: 40px;
+  background-color: #F2F2F2;
+  border-radius: 10px;
+
+}
+
+.fb-icon{
+  padding: 20px 10px 20px 10px;
+}
+
+.apple-login{
+  height: 63.95px;
+  width: 40px;
+  background-color:#F2F2F2;
+  border-radius: 10px;
+}
+
+.apple-icon{
+  padding: 20px 10px 20px 10px;
+}
+
+  .form-input {
+    display:  flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .label{
+    font-size: 16px;
+    color: #504F4E;
+    
+  }
+
+  input{
+    width: 350px;
+    height: 66.27px;
+    padding: 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    margin-top: 30px;
+
+} 
+
+.pwd{
+  padding-top: 30px;
+}
+
+input:focus{
+  outline: none;
+  border-bottom: 1px solid #39561A;
+}
+
+.error{
+  color: red;
+  margin-top: -10px;
+}
+
+.forget-para{
+  text-align: end;
+  margin-right: 30px;
+  color: #39561A;
+}
+
+button{
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-family: bold;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #39561A;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}  
+
+.no-account-para{
+  color: #504F4E;
+}
+
+span {
+    color: #39561A;
+    margin-left: 10px;
+}  

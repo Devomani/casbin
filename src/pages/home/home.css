@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+}
+
+.dashboardContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    overflow-x: auto;
+}
+
+.dashboardContainer .money-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.dashboardContainer .money-header .money-bin{
+    height: 5rem;
+    width: 10rem;
+    background-color: rgb(207, 236, 207);
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.title-bar{
+    display: flex;
+    justify-content: space-around;
+    background-color: green;
+    height: 7rem;
+    width: 100%;    
+    margin: 10px;
+}
+
+.title-bar .t-text{
+    text-align: end;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-bar .t-text h1{
+    text-align: end;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.history{
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    align-items: left;
+    height: 3rem;
+    /* margin: 0 auto; */
+    overflow-x: auto;
+
+}
+
+.history .history-title h1{
+    display: flex;
+    justify-content: left;
+    text-align: end;
+    align-items: left;
+    color: green;
+}
+
+.history .withdraw{
+    padding: 10px;
+}
+
+.history .withdraw .wd-cover{
+    color: white;
+    background-color: #FFC035;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 3rem;
+    border-radius: 5px;
+}
+
+.history .withdraw .wd-cover h1{
+    text-align: center;
+    color: white;
+    padding-top: 15px;
+}
+
+hr{
+    width: 80%;
+    margin-left: 60px;
+}
+
+
+
+
