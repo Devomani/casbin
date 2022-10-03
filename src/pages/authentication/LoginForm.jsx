@@ -1,94 +1,194 @@
 import React, { useState } from "react";
-import "./LoginForm.css"
-import { Validation } from "./Validation";
+import { Form, Button, Input, Row, Col } from "antd";
+import google from "../../images/google.svg";
+import facebook from "../../images/Facebook.svg";
+import apple from "../../images/apple.svg";
+import { Link } from "react-router-dom";
 
+export const LoginForm = () => {
+    const [showForgetPassword, setShowForgetPassword] = useState(false)
 
+  return (
+    <>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          width: "100%",
+        }}
+      >
+        <button
+          style={{
+            backgroundColor: "rgba(153, 204, 99, 0.4)",
+            borderRadius: "9px",
+            padding: 30,
+            border: "none",
+          }}
+        >
+          <img src={google} alt="google-logo" /> Sign in with google
+        </button>
+        <img
+          src={facebook}
+          alt="facebook-imag"
+          width={50}
+          height={85}
+          style={{
+            backgroundColor: "#F2F2F2",
+            padding: "30px 10px",
+            borderRadius: "9px",
+          }}
+        />
+        <img
+          src={apple}
+          alt="apple-imag"
+          width={50}
+          height={85}
+          style={{
+            backgroundColor: "#F2F2F2",
+            padding: "30px 10px",
+            borderRadius: "9px",
+          }}
+        />
+      </div>
+      {
+        showForgetPassword ? 
+        <Form
+        name="basic"
+        initialValues={{
+          remember: true,
+        }}
+        layout="vertical"
+        autoComplete="off"
+      >
+        <Row style={{ height: "100%", width: "100%", marginTop: 30 }}>
+            <p style={{textAlign: "center",width: "100%"}}>Forget Password</p>
+          <Col style={{ width: "100%" }} className="gutter-row">
+            <Form.Item
+              label="Enter Email Address"
+              name=""
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your email address!",
+                },
+              ]}
+            >
+              <Input
+                style={{
+                  borderRadius: "9px",
+                  padding: "30px 10px",
+                  borderColor: "#5C872E",
+                }}
+                placeholder="Email address"
+              />
+            </Form.Item>
+          </Col>
+          <Col style={{ width: "100%" }} className="gutter-row">
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{
+                  backgroundColor: "#39561A",
+                  padding: "30px",
+                  borderRadius: "9px",
+                  border: "none",
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                Submit
+              </Button>
+            </Form.Item>
+          </Col>
+        </Row>
+      </Form> :
 
-//funtion for login form
-const LoginForm = ()=> {
-
-    //set the satet for value inpute
-    const [values, setValues] = useState({
-        email: "",
-        password: ""
-    })
-    
-    //set state to manage errors
-    const [errors, setErrors] = useState({});
-
-    // fuction to handle change in event
-    const handleChange = (event) => {
-        setValues ({
-            ...values,
-            [event.target.name]: event.target.value,
-        });
-    }
-
-    // set prevent default to prevent page for reloading
-    const handleLoginSubmit = (event) =>{
-        event.preventDefault();
-
-        // manage errors
-        setErrors(Validation(values));
-    };
-    return (
-        //the app body
-    // <div className = "container">
-        // <div className="app-container"></div>
-        // <div className ="app-body">    
-            // <div className="main">
-                <form className="form-header">
-                    <h3 className="title">Login</h3>
-                    <div className="signSection">
-                        <div className="google-login">
-                            <img src="/Images/google.svg" alt="" />
-                            <span className="span1">Sign with Google</span></div>
-                        <div className="facebook-login">
-                            <img className="fb-icon" src="/Images/Facebook.svg" alt="black" color="black"/>
-                        </div>
-                        <div className="apple-login">
-                            <img className="apple-icon" src="/Images/apple.svg" alt="" width="50px" />
-                        </div>
-                    </div>
-                    <div className="email">
-                        <label className="label">Phone Number or Email Address</label><br></br>
-                        <input 
-                           className="input" 
-                           type="email" 
-                           name="email"
-                           placeholder="Phone Number or email address"
-                           required
-                           value={values.email}
-                           onChange={handleChange} 
-                          />
-                        {errors.email && <p className="error">{errors.email}</p>}
-                    </div>
-                    <div className="pwd">
-                        <label className="label">Enter your Password</label><br></br>
-                        <input 
-                            className="input" 
-                            type="password" 
-                            name="password"
-                            placeholder="Password"
-                            required
-                            value={values.password}
-                            onChange={handleChange}
-                             />
-                            {errors.password && <p className="error">{errors.password}</p>}
-                            <p className="forget-para">Forget Password</p>
-                    </div>
-                    <div>
-                        <button className="loginBtn" onClick={handleLoginSubmit}>Login</button>
-                    </div>
-                    <p className="no-account-para">No account ? <a href="/"><span>Sign up</span></a> </p>
-                 </form>
-            // </div>
-        // </div>
-    // </div>
-    );    
-}
-    
-        
-
-
-        export default LoginForm
+      <Form
+        name="basic"
+        initialValues={{
+          remember: true,
+        }}
+        layout="vertical"
+        autoComplete="off"
+      >
+        <Row style={{ height: "100%", width: "100%", marginTop: 30 }}>
+          <Col style={{ width: "100%" }} className="gutter-row">
+            <Form.Item
+              label="Phone number or email address"
+              name="username"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your phone number or email address!",
+                },
+              ]}
+            >
+              <Input
+                style={{
+                  borderRadius: "9px",
+                  padding: "30px 10px",
+                  borderColor: "#5C872E",
+                }}
+                placeholder="Phone number or email address"
+              />
+            </Form.Item>
+          </Col>
+          <Col style={{ width: "100%" }} className="gutter-row">
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your password!",
+                },
+              ]}
+            >
+              <Input.Password
+                style={{
+                  borderRadius: "9px",
+                  padding: "30px 10px",
+                  borderColor: "#5C872E",
+                }}
+                placeholder="Phone number or email address"
+              />
+            </Form.Item>
+          </Col>
+          <Col style={{ width: "100%" }}>
+            <p onClick={() => setShowForgetPassword(!showForgetPassword)} style={{ color: "#5C872E", textAlign: "right" }}>
+              Forget password
+            </p>
+          </Col>
+          <Col style={{ width: "100%" }} className="gutter-row">
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{
+                  backgroundColor: "#39561A",
+                  padding: "30px",
+                  borderRadius: "9px",
+                  border: "none",
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                Login
+              </Button>
+            </Form.Item>
+          </Col>
+        </Row>
+      </Form>
+      }
+      
+      <div>
+        <p style={{textAlign: "center"}}>No Account?&nbsp;&nbsp;&nbsp; <Link to={"/signup"} style={{color: "#39561A"}}>Sign up</Link></p>
+      </div>
+    </>
+  );
+};

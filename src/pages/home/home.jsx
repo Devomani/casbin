@@ -1,6 +1,7 @@
 import React from 'react'
 import './home.css' 
 import Imagge from '../../images/Imagge.svg'
+import Bincoin from '../../images/Bincoin.svg'
 
 export const HomeComponent = () => {
   return (
@@ -8,7 +9,7 @@ export const HomeComponent = () => {
         <div className="dashboardContainer">
           <div className="money-header">
             <div className="money-bin">
-
+              <img src={Bincoin} alt="" />
             </div>
             <div className="money-bin">
               {/* <h1>hdhdh</h1> */}

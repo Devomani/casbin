@@ -1,8 +1,11 @@
 import React from 'react'
 import './style.css'
-import {HomeOutlined, MoneyCollectOutlined, BellOutlined, MenuOutlined, DeleteOutlined} from '@ant-design/icons'
+import {HomeOutlined, BellOutlined, MenuOutlined} from '@ant-design/icons'
 import { Image } from 'antd'
 import {Link} from 'react-router-dom'
+import Gift from '../images/Gift.svg'
+import Waste from '../images/Waste.svg'
+import Home from '../images/Home.svg'
 
 
 export const Layout = (props) => {
@@ -17,14 +20,14 @@ export const Layout = (props) => {
           <div className="header-icon"> <Link to='/notification' style={{color: 'white'}}> <BellOutlined style={{fontSize: 30}} /></Link></div>
         </div>
       </header>
-      <main>
+      <main style={{overflowY: "auto"}}>
         {props.main}
       </main>
       <footer>
         <ul>
-        <Link to="/dashboard" style={{color: 'white'}}><li><HomeOutlined /> Home </li></Link>
-        <Link to="/trash" style={{color: 'white'}}><li><DeleteOutlined /> Trash</li></Link>
-        <Link to='/earn' style={{color: 'white'}}> <li><MoneyCollectOutlined /> Earn</li></Link>
+        <Link to="/dashboard" style={{color: 'white'}}><li> <img src={Home} alt="" /> Home </li></Link>
+        <Link to="/trash" style={{color: 'white'}}><li> <img src={Waste} alt="" /> Trash</li></Link>
+        <Link to='/earn' style={{color: 'white'}}> <li><img src={Gift} alt="" /> Earn</li></Link>
         <Link to='/more' style={{color: 'white'}}><li><MenuOutlined /> More</li> </Link>
         </ul>
       </footer>
