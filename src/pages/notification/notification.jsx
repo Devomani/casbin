@@ -1,10 +1,13 @@
 import React from 'react'
+import { CheckUser } from '../authentication/modal'
 
 export const NotificationComponent = () => {
-  return (
-    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'green', fontWeight: '700', textAlign: 'center', height: '60vh'}}>
-      <h1 style={{color: 'blue'}}>Hold Creed is cooking the Notification Component</h1>
+const notification = ""
 
+  return (
+    <div>
+      
+    {notification === "" ? <CheckUser message="You have no notification" link="/dashboard" /> : []} 
     </div>
   )
 }
