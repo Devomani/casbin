@@ -5,6 +5,7 @@ import {LoginForm} from './LoginForm'
 export const Login = () => {
   return (
     <AuthLayout headerTitle= 'Login' main={<LoginForm/>}>
+      
     </AuthLayout>
   )
 

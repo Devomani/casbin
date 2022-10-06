@@ -37,6 +37,7 @@ body {
 .container header .header-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: #fff;
   width: 100%;
   height: fit-content;
@@ -69,3 +70,17 @@ footer ul {
 footer ul li {
   display: grid;
 }
+
+.ant-drawer-body {
+
+  background-color: #39561a!important;
+}
+
+/* .drawer-container{
+  width: 100vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */

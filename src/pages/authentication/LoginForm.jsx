@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, Input, Row, Col } from "antd";
 import google from "../../images/google.svg";
 import facebook from "../../images/Facebook.svg";
@@ -7,6 +7,31 @@ import { Link } from "react-router-dom";
 
 export const LoginForm = () => {
     const [showForgetPassword, setShowForgetPassword] = useState(false)
+    const [email, setEmail] = useState("")
+    const [pass, setpass] = useState("")
+    const onLogin = () => {
+      let userData = {}
+      if (!localStorage.getItem("UserDetails")) {
+      } else {
+      userData =  JSON.parse(localStorage.getItem("UserDetails"))
+      // const convert = Object.entries(userData)
+      console.log(userData)
+        if (userData?.email === email && userData?.password === pass) {
+          sessionStorage.setItem("loginDetails", JSON.stringify(userData))
+          window.location.href = "/dashboard"
+        } else {
+          alert("Wrong details")
+        }
+      }
+      return userData
+    }
+
+    useEffect(() => {
+      if (sessionStorage.getItem("loginDetails")) {
+       window.location.href = "/dashboard"
+      }
+    }, [])
+    
 
   return (
     <>
@@ -113,6 +138,7 @@ export const LoginForm = () => {
         }}
         layout="vertical"
         autoComplete="off"
+        onFinish={onLogin}
       >
         <Row style={{ height: "100%", width: "100%", marginTop: 30 }}>
           <Col style={{ width: "100%" }} className="gutter-row">
@@ -133,6 +159,7 @@ export const LoginForm = () => {
                   borderColor: "#5C872E",
                 }}
                 placeholder="Phone number or email address"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Item>
           </Col>
@@ -154,6 +181,8 @@ export const LoginForm = () => {
                   borderColor: "#5C872E",
                 }}
                 placeholder="Phone number or email address"
+                onChange={(e) => setpass(e.target.value)}
+
               />
             </Form.Item>
           </Col>

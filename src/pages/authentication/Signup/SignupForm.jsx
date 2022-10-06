@@ -1,16 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { Form, Button, Input, Row, Col } from "antd";
-import { Link } from 'react-router-dom';
-
-
+import { Link } from "react-router-dom";
 
 //function for the signup Form
 const SignupForm = () => {
-  const [loading, setLoading] = useState(false)
- 
+  const [loading, setLoading] = useState(false);
+  const [checkData, setcheckData] = useState(false)
+
+  const onFinish = (values) => {
+    if (values !== undefined) {
+      setLoading(false);
+      localStorage.setItem("UserDetails", JSON.stringify(values));
+      window.location.href = "/dashboard";
+      setcheckData(true)
+    }
+  };
+
   return (
     <>
-       <Form
+      <Form
+        onFinish={onFinish}
         name="basic"
         initialValues={{
           remember: true,
@@ -22,7 +31,7 @@ const SignupForm = () => {
           <Col style={{ width: "100%" }} className="gutter-row">
             <Form.Item
               label="Full Name"
-              name="a"
+              name="fullName"
               rules={[
                 {
                   required: true,
@@ -44,7 +53,7 @@ const SignupForm = () => {
           <Col style={{ width: "100%" }} className="gutter-row">
             <Form.Item
               label="Phone No"
-              name="b"
+              name="phoneNo"
               rules={[
                 {
                   required: true,
@@ -53,12 +62,16 @@ const SignupForm = () => {
               ]}
             >
               <Input
+              minLength={11}
+              maxLength={11}
+              // addonBefore="NGN(+234)"
+              type="number"
                 style={{
                   borderRadius: "9px",
                   padding: "20px 10px",
                   borderColor: "#5C872E",
                 }}
-                placeholder="Phone number"
+                placeholder="09000000000"
               />
             </Form.Item>
           </Col>
@@ -66,7 +79,7 @@ const SignupForm = () => {
           <Col style={{ width: "100%" }} className="gutter-row">
             <Form.Item
               label="Email Address"
-              name="c"
+              name="email"
               rules={[
                 {
                   required: true,
@@ -75,13 +88,13 @@ const SignupForm = () => {
               ]}
             >
               <Input
-                type='email'
+                type="email"
                 style={{
                   borderRadius: "9px",
                   padding: "20px 10px",
                   borderColor: "#5C872E",
                 }}
-                placeholder="Email Address"
+                placeholder="example@gmail.com"
               />
             </Form.Item>
           </Col>
@@ -98,12 +111,13 @@ const SignupForm = () => {
               ]}
             >
               <Input.Password
+                minLength={8}
                 style={{
                   borderRadius: "9px",
                   padding: "20px 10px",
                   borderColor: "#5C872E",
                 }}
-                placeholder="Phone number or email address"
+                placeholder="********"
               />
             </Form.Item>
           </Col>
@@ -123,7 +137,7 @@ const SignupForm = () => {
                   justifyContent: "center",
                 }}
                 loading={loading}
-                onClick={() => setLoading(!loading)}
+                onClick={() => setLoading(checkData ? !loading : loading)}
               >
                 Sign Up
               </Button>
@@ -131,11 +145,16 @@ const SignupForm = () => {
           </Col>
         </Row>
       </Form>
-      <div style={{marginTop: -15,width: "100%"}}>
-        <p style={{textAlign: "center"}}>Already have an Account?&nbsp;&nbsp;&nbsp; <Link to={"/login"} style={{color: "#39561A"}}>Login</Link></p>
+      <div style={{ marginTop: -15, width: "100%" }}>
+        <p style={{ textAlign: "center" }}>
+          Already have an Account?&nbsp;&nbsp;&nbsp;{" "}
+          <Link to={"/login"} style={{ color: "#39561A" }}>
+            Login
+          </Link>
+        </p>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SignupForm
+export default SignupForm;
