@@ -23,7 +23,7 @@ export const LandingPage = () => {
         <p style={{color: "white",fontSize: 20,marginTop: 10}}>Trash &nbsp;| &nbsp;Earn &nbsp;|&nbsp; Rewards </p>
 
         <a
-          href={"/signup"}
+          href={"/login"}
           style={{
             outline: "1px solid white",
             backgroundColor: "#39561A",
